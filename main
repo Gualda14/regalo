@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Regalo Misterioso</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 50px;
+    }
+    input {
+      padding: 10px;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    img {
+      width: 250px;
+      height: auto;
+      margin-top: 30px;
+    }
+    .hint {
+      margin-top: 30px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hola, agente 👩‍💻</h1>
+  <p>Tu misión, si decides aceptarla, es desbloquear el regalo visual.</p>
+  <img id="misterio" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/1200px-Question_Mark.svg.png" alt="Imagen misterio">
+  <br>
+  <input type="text" id="passInput" placeholder="Introduce la contraseña">
+  <button onclick="checkPassword()">Acceder</button>
+  <div class="hint">Pista: a veces las respuestas están justo delante de tus ojos… o detrás del código.</div>
+
+  <!-- ssh-pass:el_amor_es_la_clave -->
+
+  <script>
+    // Guardar la contraseña en una cookie
+    document.cookie = "claveSecreta=el_amor_es_la_clave";
+
+    function checkPassword() {
+      const input = document.getElementById('passInput').value;
+      const password = "el_amor_es_la_clave";
+      if (input === password) {
+        document.getElementById('misterio').src = "AQUÍ_TU_URL_DEL_REGALO.jpg";
+        alert("¡Acceso concedido! 🎁");
+      } else {
+        alert("Contraseña incorrecta. Intenta de nuevo.");
+      }
+    }
+
+    console.log("Otra pista: la función 'view source' o mirar cookies puede ayudarte.");
+  </script>
+</body>
+</html>
