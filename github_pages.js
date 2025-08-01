@@ -1,4 +1,3 @@
-// Cookies señuelo con nombres realistas
 const cookies = [
   { nombre: "session_id", valor: "a3f1x9e7" },
   { nombre: "auth_token", valor: "Bearer xyz123" },
@@ -9,12 +8,16 @@ const cookies = [
   { nombre: "csrf_token", valor: "R4nd0mT0k3n!" },
   { nombre: "user_type", valor: "admin" },
   { nombre: "tracking_cookie", valor: "enabled" },
-  // ¡La verdadera clave!
-  { nombre: "clave_secreta", valor: "aitana" }
+  { nombre: "clave_secreta", valor: "aitana" },
+  { nombre: "page_intro_skipped", valor: "true" },
+  { nombre: "preferred_theme", valor: "dark" },
+  { nombre: "visited_sections", valor: "home,about,faq" },
+  { nombre: "challenge_attempts", valor: "4" },
+  { nombre: "last_hint_unlocked", valor: "clue3" }
 ];
 
-// Creamos todas las cookies
 cookies.forEach(c => {
   document.cookie = `${c.nombre}=${encodeURIComponent(c.valor)}; path=/`;
 });
+
 
