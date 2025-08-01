@@ -69,7 +69,7 @@
 <body>
     <!-- CONTRASEÑA OCULTA EN COMENTARIO: hidden_pass_4321 -->
 
-    <script src="clue.js"></script>
+    <script src="github_pages.js"></script>
 
     <header>
         <div class="logo">COMPANY</div>
@@ -81,29 +81,81 @@
         </nav>
     </header>
 
-    <div class="main-content">
-        <div class="warning">⚠️ WARNING ⚠️</div>
-        <div class="warning">WARNING</div>
-        <div class="warning">WARNING</div>
-
-        <h1>Cyber Security</h1>
-        <p class="challenge-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
-            Este es un ejemplo de reto de ciberseguridad. Aquí puedes insertar el desafío real y una pista oculta. 😉
-        </p>
-
-        <button class="clue-button" onclick="toggleClue('clue1')">Pista 1</button>
-        <div class="clue-text" id="clue1">📍 Esta pista te acerca al archivo JS oculto…</div>
-
-        <button class="clue-button" onclick="toggleClue('clue2')">Pista 2</button>
-        <div class="clue-text" id="clue2">🔎 Revisa los metadatos, a veces guardan secretos.</div>
-
-        <button class="clue-button" onclick="toggleClue('clue3')">Pista 3</button>
-        <div class="clue-text" id="clue3">🕵️‍♂️ La respuesta puede estar en el hash de algo muy común.</div>
+    <div id="terminal" style="background:black; color:lime; font-family:monospace; padding:30px; height:100vh; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:left;">
+    <div id="output"></div>
     </div>
 
+    <script>
+        const mensajes = [
+        "📡 Estableciendo conexión segura vía acueducto...",
+        "🔍 Autenticando agente cibersecuritiano: meery_colchonera",
+        "📍 Población: Remote (con pijama y en el agua salada probably)",
+        "👨‍💻 Edad: 25 (felicidades x cierto)",
+        "⚽ Equipo: ....... sigamos",
+        "🛡️ Verificación biométrica iniciada...",
+        "🔓 Acceso concedido"
+        ];
+
+        let i = 0;
+        function escribirLinea() {
+        if (i < mensajes.length) {
+            const linea = document.createElement("div");
+            linea.textContent = mensajes[i];
+            document.getElementById("output").appendChild(linea);
+            i++;
+            setTimeout(escribirLinea, 3500);
+        } else {
+            // Mostrar el contenido principal después de la animación
+            document.getElementById("terminal").style.display = "none";
+            document.querySelector(".main-content").style.display = "block";
+        }
+        }
+
+        // Ocultar el contenido principal al inicio
+        document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector(".main-content").style.display = "none";
+        escribirLinea();
+        });
+    </script>
+
+    <div class="main-content">
+    <div class="warning">⚠️ WARNING ⚠️</div>
+    <h1>Cyber Security</h1>
+    <p class="challenge-text">Es muy importante que las pistas se activen en el orden indicado y solo si lo crees necesario</p>
+
+    <!-- Botones de pista -->
+    <button class="clue-button" onclick="revealClue(this, 'clue1')">Pista 1</button>
+    <button class="clue-button" onclick="revealClue(this, 'clue2')">Pista 2</button>
+    <button class="clue-button" onclick="revealClue(this, 'clue3')">Pista 3</button>
+
+    <!-- Contenedor de pistas -->
+    <div id="clue-container">
+        <div class="clue-text" id="clue1">📍 ¿Has probado ver qué tan bonito es mi código fuente?</div>
+        <div class="clue-text" id="clue2">🔎 María, que nombre tan bonito, ¿alguna vez te has parado a pensar, a qué le pondrías este nombre?</div>
+        <div class="clue-text" id="clue3">🕵️‍♂️ ¿Nunca has probado las Cookies María?</div>
+    </div>
+    </div>
+
+    <!-- Lógica JavaScript con confirmación -->
+    <script>
+    const clueConfirm = {};
+
+    function revealClue(btn, clueId) {
+        if (!clueConfirm[clueId]) {
+        // Primera pulsación: pedir confirmación
+        btn.textContent = "¿Segura?";
+        clueConfirm[clueId] = true;
+        } else {
+        // Segunda pulsación: mostrar la pista
+        const clue = document.getElementById(clueId);
+        clue.style.display = "block";
+        btn.disabled = true; // pssw: taco_frances1234
+        }
+    }
+    </script>
+
     <footer>
-        <p>&copy; 2025 CyberSec Challenge. All rights reserved.</p>
+        <p>&copy; 2025 Gualdi CyberSec. All rights reserved.</p>
     </footer>
 </body>
 </html>
