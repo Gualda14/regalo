@@ -1,23 +1,209 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Acceso protegido</title>
-    <script>
-        function verificarContraseña() {
-            var contraseña = document.getElementById("password").value;
-            if (contraseña === "aitana") {
-                window.location.href = "https://safariaitana.es/";
-            } else {
-                alert("Contraseña incorrecta. Intenta de nuevo.");
-            }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber Security Challenge</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #1f1c2c, #928dab);
+            color: white;
         }
-    </script>
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            text-align: center;
+            padding: 20px 20px;
+        }
+        .warning {
+            font-size: 2em;
+            color: #ff4f6d;
+            margin-bottom: 10px;
+        }
+        .challenge-text {
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+        .clue-button {
+            margin: 20px 10px;
+            background-color: #ff69b4;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .clue-text {
+            margin: 20px auto;
+            padding: 20px;
+            width: 60%;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            display: none;
+            font-size: 1em;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 10px; /* antes podría estar en 100px o más */
+        }
+
+    </style>
 </head>
 <body>
-    <h2>Introduce la contraseña para continuar</h2>
-    <input type="password" id="password" placeholder="Contraseña">
-    <button onclick="verificarContraseña()">Entrar</button>
+
+    <script src="github_pages.js"></script>
+
+    <header>
+        <div class="logo">&copy; 2025 Gualdi CyberSec</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contacts</a>
+            <a href="#">FAQ</a>
+        </nav>
+    </header>
+
+    <div id="terminal" style="background:black; color:lime; font-family:monospace; padding:30px; height:100vh; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:left;">
+    <div id="output"></div>
+    </div>
+
+    <script>
+        const mensajes = [
+        "📡 Estableciendo conexión segura vía acueducto...",
+        "🔍 Autenticando agente cibersecuritiano: meery_colchonera",
+        "📍 Población: Remote (con pijama y en el agua salada probably)",
+        "👨‍💻 Edad: 25 (felicidades x cierto)",
+        "⚽ Equipo: ....... sigamos",
+        "🛡️ Verificación biométrica iniciada...",
+        "🔓 Acceso concedido"
+        ];
+
+        let i = 0;
+        function escribirLinea() {
+        if (i < mensajes.length) {
+            const linea = document.createElement("div");
+            linea.textContent = mensajes[i];
+            document.getElementById("output").appendChild(linea);
+            i++;
+            setTimeout(escribirLinea, 50);
+        } else {
+            // Mostrar el contenido principal después de la animación
+            document.getElementById("terminal").style.display = "none";
+            document.querySelector(".main-content").style.display = "block";
+        }
+        }
+
+        // Ocultar el contenido principal al inicio
+        document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector(".main-content").style.display = "none";
+        escribirLinea();
+        });
+    </script>
+
+    <div class="main-content">
+    <h1>Cyber Security Test</h1>
+
+    <div class="challenge-instructions" style="margin-top: 20px; font-size: 1.1em; line-height: 1.6;">
+        <p><strong>Bienvenida <span style="color:#ff69b4;">meery_colchonera</span> by Alias Robotics</strong> a uno de los <em>CTFs más potentes del momento</em>. Has resuelto numerosos problemas de ciberseguridad, pero este es el más importante: <strong style="color:#ff69b4;">descifrar cuál es tu regalo</strong>.</p>
+        <p><em>¿Bautismo de buceo?</em> ¿<em>Puenting?</em> Demuestra qué tan buen agente cibersecuritiano eres y descubrirás qué te espera. <strong>Para ello, sigue las siguientes indicaciones:</strong></p>
+        <ul style="list-style-type: disc; text-align: left; display: inline-block; margin-top: 5px;">
+            <li>Todo lo que necesitas lo podrás encontrar en esta página tan bonita.</li>
+            <li>Usa tus habilidades de hacker sin necesidad de programar, software, etc.</li>
+            <li>Tienes a tu disposición una serie de pistas por si es demasiado para tí... ⚠️Importante que  se activen en el orden indicado⚠️</li>
+        </ul>
+    </div>
+
+    <!-- Botones de pista -->
+    <button class="clue-button" onclick="revealClue(this, 'clue1')">Pista 1</button>
+    <button class="clue-button" onclick="revealClue(this, 'clue2')">Pista 2</button>
+    <button class="clue-button" onclick="revealClue(this, 'clue3')">Pista 3</button>
+
+    <!-- ¡¡¡¡NO ABRIR 'clue-container', CONTIENE LAS PISTAS!!!! -->
+    <!-- ¡¡¡¡NO ABRIR 'clue-container', CONTIENE LAS PISTAS!!!! -->
+    <div id="clue-container">
+        <div class="clue-text" id="clue1">📍 ¿Has probado ver qué tan bonito es mi código fuente?</div>
+        <div class="clue-text" id="clue2">🔎 María, que nombre tan bonito, ¿alguna vez te has parado a pensar, a qué le pondrías este nombre?</div>
+        <div class="clue-text" id="clue3">🕵️‍♂️ ¿Nunca has probado las Cookies María?</div>
+    </div>
+
+    <h1>📰 Últimas Noticias de Ciberseguridad</h1>
+    <div class="noticias-ciberseguridad" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;">
+
+    <!-- Noticia 1 -->
+    <div style="background-color: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; width: 280px;">
+        <a href="https://theobjective.com/espana/2025-08-03/ciberseguridad-fallos-camaras-chinas-instalaciones-estado/" target="_blank" style="text-decoration: none; color: white;">
+        <img src="https://img.icons8.com/emoji/48/video-camera-emoji.png" alt="Cámara de vigilancia" style="width:48px; height:48px; display:block; margin:auto;" />
+        <h3 style="margin-top: 15px;">Fallos en cámaras chinas usadas por el Estado</h3>
+        <p><strong>The Objective</strong> — 3 ago 2025</p>
+        <p style="font-size: 0.95em;">Incibe alerta sobre vulnerabilidades graves en dispositivos Hikvision utilizados en organismos públicos.</p>
+        </a>
+    </div>
+
+    <!-- Noticia 2 -->
+    <div style="background-color: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; width: 280px;">
+        <a href="https://medium.com/@laurent.mandine/why-hackers-use-base64-for-commands-8205ad5cbf95" target="_blank" style="text-decoration: none; color: white;">
+        <img src="https://img.icons8.com/emoji/48/memo-emoji.png" alt="Documento legal" style="width:48px; height:48px; display:block; margin:auto;" />
+        <h3 style="margin-top: 15px;">Why Hackers Use Encoding for Commands</h3>
+        <p><strong>Medium</strong> — 28 sep 2024</p>
+        <p style="font-size: 0.95em;">Hackers usually use encoded commands on their pent-testing programms. See here why.</p>
+        </a>
+    </div>
+
+    <!-- Noticia 3 -->
+    <div style="background-color: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; width: 280px;">
+        <a href="https://www.ambientum.com/ambientum/seguridad-industrial/soluciones-clave-para-fortalecer-la-ciberseguridad-industrial.asp" target="_blank" style="text-decoration: none; color: white;">
+        <img src="https://img.icons8.com/emoji/48/factory-emoji.png" alt="Planta industrial" style="width:48px; height:48px; display:block; margin:auto;" />
+        <h3 style="margin-top: 15px;">Soluciones clave para proteger plantas industriales</h3>
+        <p><strong>Ambientum</strong> — 30 jul 2025</p>
+        <p style="font-size: 0.95em;">La segmentación de redes y el monitoreo continuo son esenciales para evitar intrusiones digitales.</p>
+        </a>
+    </div>
+
+    </div>
+    </div>
+
+    <!-- Lógica JavaScript con confirmación -->
+    <script>
+    const clueConfirm = {};
+
+    function revealClue(btn, clueId) {
+        if (!clueConfirm[clueId]) {
+        // Primera pulsación: pedir confirmación
+        btn.textContent = "¿Segura?";
+        clueConfirm[clueId] = true;
+        } else {
+        // Segunda pulsación: mostrar la pista
+        const clue = document.getElementById(clueId);
+        clue.style.display = "block";
+        btn.disabled = true; // pssw: taco_frances1234
+        }
+    }
+    </script>
+
+    <footer>
+        <p>&copy; 2025 Gualdi CyberSec. All rights reserved.</p>
+    </footer>
 </body>
 </html>
