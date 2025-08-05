@@ -8,7 +8,7 @@ const cookies = [
   { nombre: "csrf_token", valor: "R4nd0mT0k3n!" },
   { nombre: "user_type", valor: "admin" },
   { nombre: "tracking_cookie", valor: "enabled" },
-  { nombre: "clave_secreta", valor: "aitana" },
+  { nombre: "rgm_14", valor: "YWl0YW5h" },
   { nombre: "page_intro_skipped", valor: "true" },
   { nombre: "preferred_theme", valor: "dark" },
   { nombre: "visited_sections", valor: "home,about,faq" },
