@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso protegido</title>
+    <script>
+        function verificarContraseña() {
+            var contraseña = document.getElementById("password").value;
+            if (contraseña === "aitana") {
+                window.location.href = "https://safariaitana.es/";
+            } else {
+                alert("Contraseña incorrecta. Intenta de nuevo.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Introduce la contraseña para continuar</h2>
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="verificarContraseña()">Entrar</button>
+</body>
+</html>
