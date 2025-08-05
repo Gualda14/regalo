@@ -1,161 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cyber Security Challenge</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #1f1c2c, #928dab);
-            color: white;
+    <meta charset="UTF-8">
+    <title>Acceso protegido</title>
+    <script>
+        function verificarContraseña() {
+            var contraseña = document.getElementById("password").value;
+            if (contraseña === "aitana") {
+                window.location.href = "https://safariaitana.es/";
+            } else {
+                alert("Contraseña incorrecta. Intenta de nuevo.");
+            }
         }
-        header {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-        nav a {
-            margin: 0 15px;
-            color: white;
-            text-decoration: none;
-        }
-        .main-content {
-            text-align: center;
-            padding: 80px 20px;
-        }
-        .warning {
-            font-size: 2em;
-            color: #ff4f6d;
-            margin-bottom: 10px;
-        }
-        .challenge-text {
-            margin-top: 30px;
-            font-size: 1.2em;
-        }
-        .clue-button {
-            margin: 20px 10px;
-            background-color: #ff69b4;
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 4px;
-            font-size: 1em;
-            cursor: pointer;
-        }
-        .clue-text {
-            margin: 20px auto;
-            padding: 20px;
-            width: 60%;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            display: none;
-            font-size: 1em;
-        }
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.2);
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+    </script>
 </head>
 <body>
-    <!-- CONTRASEÑA OCULTA EN COMENTARIO: hidden_pass_4321 -->
-
-    <script src="github_pages.js"></script>
-
-    <header>
-        <div class="logo">COMPANY</div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contacts</a>
-            <a href="#">FAQ</a>
-        </nav>
-    </header>
-
-    <div id="terminal" style="background:black; color:lime; font-family:monospace; padding:30px; height:100vh; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:left;">
-    <div id="output"></div>
-    </div>
-
-    <script>
-        const mensajes = [
-        "📡 Estableciendo conexión segura vía acueducto...",
-        "🔍 Autenticando agente cibersecuritiano: meery_colchonera",
-        "📍 Población: Remote (con pijama y en el agua salada probably)",
-        "👨‍💻 Edad: 25 (felicidades x cierto)",
-        "⚽ Equipo: ....... sigamos",
-        "🛡️ Verificación biométrica iniciada...",
-        "🔓 Acceso concedido"
-        ];
-
-        let i = 0;
-        function escribirLinea() {
-        if (i < mensajes.length) {
-            const linea = document.createElement("div");
-            linea.textContent = mensajes[i];
-            document.getElementById("output").appendChild(linea);
-            i++;
-            setTimeout(escribirLinea, 3500);
-        } else {
-            // Mostrar el contenido principal después de la animación
-            document.getElementById("terminal").style.display = "none";
-            document.querySelector(".main-content").style.display = "block";
-        }
-        }
-
-        // Ocultar el contenido principal al inicio
-        document.addEventListener("DOMContentLoaded", () => {
-        document.querySelector(".main-content").style.display = "none";
-        escribirLinea();
-        });
-    </script>
-
-    <div class="main-content">
-    <div class="warning">⚠️ WARNING ⚠️</div>
-    <h1>Cyber Security</h1>
-    <p class="challenge-text">Es muy importante que las pistas se activen en el orden indicado y solo si lo crees necesario</p>
-
-    <!-- Botones de pista -->
-    <button class="clue-button" onclick="revealClue(this, 'clue1')">Pista 1</button>
-    <button class="clue-button" onclick="revealClue(this, 'clue2')">Pista 2</button>
-    <button class="clue-button" onclick="revealClue(this, 'clue3')">Pista 3</button>
-
-    <!-- Contenedor de pistas -->
-    <div id="clue-container">
-        <div class="clue-text" id="clue1">📍 ¿Has probado ver qué tan bonito es mi código fuente?</div>
-        <div class="clue-text" id="clue2">🔎 María, que nombre tan bonito, ¿alguna vez te has parado a pensar, a qué le pondrías este nombre?</div>
-        <div class="clue-text" id="clue3">🕵️‍♂️ ¿Nunca has probado las Cookies María?</div>
-    </div>
-    </div>
-
-    <!-- Lógica JavaScript con confirmación -->
-    <script>
-    const clueConfirm = {};
-
-    function revealClue(btn, clueId) {
-        if (!clueConfirm[clueId]) {
-        // Primera pulsación: pedir confirmación
-        btn.textContent = "¿Segura?";
-        clueConfirm[clueId] = true;
-        } else {
-        // Segunda pulsación: mostrar la pista
-        const clue = document.getElementById(clueId);
-        clue.style.display = "block";
-        btn.disabled = true; // pssw: taco_frances1234
-        }
-    }
-    </script>
-
-    <footer>
-        <p>&copy; 2025 Gualdi CyberSec. All rights reserved.</p>
-    </footer>
+    <h2>Introduce la contraseña para continuar</h2>
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="verificarContraseña()">Entrar</button>
 </body>
 </html>
