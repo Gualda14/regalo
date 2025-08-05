@@ -13,11 +13,9 @@ const cookies = [
   { nombre: "preferred_theme", valor: "dark" },
   { nombre: "visited_sections", valor: "home,about,faq" },
   { nombre: "challenge_attempts", valor: "4" },
-  { nombre: "last_hint_unlocked", valor: "clue3" }
+  { nombre: "last_hint_unlocked", valor: "c44ue3" }
 ];
 
 cookies.forEach(c => {
   document.cookie = `${c.nombre}=${encodeURIComponent(c.valor)}; path=/`;
 });
-
-
